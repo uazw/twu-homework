@@ -22,7 +22,7 @@ public class DrawerTest {
         int num = 1;
 
         //when
-        String draw = drawer.drawALine(num);
+        String draw = drawer.drawAHorizontalLine(num);
 
         //then
         assertThat(draw, is("*"));
@@ -34,9 +34,21 @@ public class DrawerTest {
         int num = 8;
 
         //when
-        String draw = drawer.drawALine(num);
+        String draw = drawer.drawAHorizontalLine(num);
 
         //then
         assertThat(draw, is("********"));
+    }
+
+    @Test
+    public void shouldReturn3AsterisksNotInline() {
+        //given
+        int num = 3;
+
+        //when
+        String draw = drawer.drawAVerticalLine(num);
+
+        //then
+        assertThat(draw, is("*\n*\n*"));
     }
 }

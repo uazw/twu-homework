@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Drawer {
 
-    public String drawALine(int num) {
+    public String drawAHorizontalLine(int num) {
         return generateAsterisks(num).stream().collect(Collectors.joining(""));
     }
 
@@ -16,5 +16,9 @@ public class Drawer {
             asterisks.add("*");
         }
         return asterisks;
+    }
+
+    public String drawAVerticalLine(int num) {
+        return generateAsterisks(num).stream().collect(Collectors.joining("\n"));
     }
 }

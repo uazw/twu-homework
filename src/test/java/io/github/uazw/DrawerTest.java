@@ -51,4 +51,16 @@ public class DrawerTest {
         //then
         assertThat(draw, is("*\n*\n*"));
     }
+
+    @Test
+    public void shouldReturn3lineRightTriangleWhenGiven3() {
+        //given
+        int num = 3;
+
+        //when
+        String draw = drawer.drawARightTriangle(num);
+
+        //then
+        assertThat(draw, is("*\n**\n***"));
+    }
 }

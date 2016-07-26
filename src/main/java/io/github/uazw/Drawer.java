@@ -59,4 +59,13 @@ public class Drawer {
         first.addAll(second);
         return first.stream().collect(joining("\n"));
     }
+
+    public String drawADiamondWithName(int num, String name) {
+        List<String> first = centerTrianglesHelper(num - 1);
+        List<String> second = new ArrayList<>(first);
+        first.add(name);
+        reverse(second);
+        first.addAll(second);
+        return first.stream().collect(joining("\n"));
+    }
 }

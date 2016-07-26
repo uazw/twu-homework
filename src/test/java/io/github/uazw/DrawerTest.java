@@ -97,6 +97,17 @@ public class DrawerTest {
 
         //then
         assertThat(draw, is("  *  \n *** \n*****\n *** \n  *  "));
+    }
 
+    @Test
+    public void shouldReturn5LineDiamondWithNameWhenGiven3AndYang() {
+        int num = 3;
+        String name = "Yang";
+
+        //when
+        String draw = drawer.drawADiamondWithName(num, name);
+
+        //then
+        assertThat(draw, is(" * \n***\nYang\n***\n * "));
     }
 }

@@ -63,4 +63,29 @@ public class DrawerTest {
         //then
         assertThat(draw, is("*\n**\n***"));
     }
+
+    @Test
+    public void shouldReturnLengthOfLineIs5AndOneAsteriskAtCenter() {
+        //given
+        int lengthOfLine = 5;
+        int countOfAsterisks = 1;
+
+        //when
+        String draw = drawer.drawALineWithAsterisksCenter(lengthOfLine, countOfAsterisks);
+
+        //then
+        assertThat(draw, is("  *  "));
+    }
+
+    @Test
+    public void shouldReturnCenterTriangleWith3LineGiven3() {
+        int num = 3;
+
+        //when
+        String draw = drawer.drawACenterTriangle(num);
+
+        //then
+        assertThat(draw, is("  *  \n *** \n*****"));
+
+    }
 }

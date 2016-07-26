@@ -78,7 +78,7 @@ public class DrawerTest {
     }
 
     @Test
-    public void shouldReturnCenterTriangleWith3LineGiven3() {
+    public void shouldReturn3LineCenterTriangleWhenGiven3() {
         int num = 3;
 
         //when
@@ -86,6 +86,18 @@ public class DrawerTest {
 
         //then
         assertThat(draw, is("  *  \n *** \n*****"));
+    }
+
+    @Test
+    public void shouldReturn5LineDiamondWhenGiven3() {
+        int num = 3;
+
+        //when
+        String draw = drawer.drawADiamond(num);
+
+        //then
+        assertThat(draw, is("  *  \n *** \n*****\n *** \n  *  "));
+
 
     }
 }

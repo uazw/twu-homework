@@ -46,4 +46,17 @@ public class Drawer {
         }
         return centerTriangle.stream().collect(joining("\n"));
     }
+
+    public String drawADiamond(int num) {
+        List<String> centerTriangle = new ArrayList<>(num);
+        int maxLength = 2 * num - 1;
+        for (int i = 1; i <= maxLength; i++) {
+            centerTriangle.add(drawALineWithAsterisksCenter(maxLength, asterisksNumberForDiamondLine(maxLength, i)));
+        }
+        return centerTriangle.stream().collect(joining("\n"));
+    }
+
+    private int asterisksNumberForDiamondLine(int maxLength, int lineNumber) {
+        return (- Math.abs(2 * lineNumber - 1 - maxLength)) + maxLength;
+    }
 }

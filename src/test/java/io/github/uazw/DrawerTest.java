@@ -98,6 +98,5 @@ public class DrawerTest {
         //then
         assertThat(draw, is("  *  \n *** \n*****\n *** \n  *  "));
 
-
     }
 }

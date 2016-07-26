@@ -3,6 +3,7 @@ package io.github.uazw;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Collections.reverse;
 import static java.util.stream.Collectors.joining;
 
 public class Drawer {
@@ -39,24 +40,23 @@ public class Drawer {
     }
 
     public String drawACenterTriangle(int num) {
+        return centerTrianglesHelper(num).stream().collect(joining("\n"));
+    }
+
+    private List<String> centerTrianglesHelper(int num) {
         List<String> centerTriangle = new ArrayList<>(num);
         for (int i = 1; i <= num; i++) {
             int maxLength = 2 * num - 1;
             centerTriangle.add(drawALineWithAsterisksCenter(maxLength, 2 * i - 1));
         }
-        return centerTriangle.stream().collect(joining("\n"));
+        return centerTriangle;
     }
 
     public String drawADiamond(int num) {
-        List<String> centerTriangle = new ArrayList<>(num);
-        int maxLength = 2 * num - 1;
-        for (int i = 1; i <= maxLength; i++) {
-            centerTriangle.add(drawALineWithAsterisksCenter(maxLength, asterisksNumberForDiamondLine(maxLength, i)));
-        }
-        return centerTriangle.stream().collect(joining("\n"));
-    }
-
-    private int asterisksNumberForDiamondLine(int maxLength, int lineNumber) {
-        return (- Math.abs(2 * lineNumber - 1 - maxLength)) + maxLength;
+        List<String> first = centerTrianglesHelper(num);
+        List<String> second = new ArrayList<>(first).subList(0, num - 1);
+        reverse(second);
+        first.addAll(second);
+        return first.stream().collect(joining("\n"));
     }
 }
